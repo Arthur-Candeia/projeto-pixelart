@@ -34,7 +34,7 @@ const resize = (qtdPixels, pixelSize) => { //funcao que muda o tamanho
 
   document.querySelectorAll('.pixel').forEach((ev) => {
     if (screen.orientation.type == 'portrait' || screen.orientation.type == 'portrait-primary' || navigator.userAgentData.mobile) { //versao Celular
-      ev.addEventListener('mouseover', () => {
+      ev.addEventListener('mousemove', () => {
         ev.style.backgroundColor = inputColor.value
       })
 
