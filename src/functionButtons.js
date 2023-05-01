@@ -34,8 +34,8 @@ const resize = (qtdPixels, pixelSize) => { //funcao que muda o tamanho
 
   document.querySelectorAll('.pixel').forEach((ev) => {
     if (/Mobi|Android/i.test(navigator.userAgent)) { //versao Celular
-      
-      ev.addEventListener('mouseover', () => {
+      alert('celular')
+      ev.addEventListener('touchmove', () => {
         ev.style.backgroundColor = inputColor.value
       })
 
