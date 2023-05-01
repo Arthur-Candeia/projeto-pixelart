@@ -1,8 +1,9 @@
-export {functionX9, functionX30, functionX60, functionClear, functionEraser}
+export {functionX9, functionX30, functionX60, functionClear, functionEraser, functionBucket}
 
 const pixels = document.getElementById('pixels')
 const inputColor = document.getElementById('inputColor')
 let verifyEraser = 1
+let verifyBucket = 0
 
 const functionX9 = () => {
   pixels.innerHTML = ''
@@ -12,14 +13,14 @@ const functionX9 = () => {
 
 const functionX30 = () => {
   pixels.innerHTML = ''
-  pixels.style.width = '450px'
-  resize(900, 15) //qtdPixels, pixelSize
+  pixels.style.width = '300px'
+  resize(900, 10) //qtdPixels, pixelSize
 }
 
 const functionX60 = () => {
   pixels.innerHTML = ''
-  pixels.style.width = '600px'
-  resize(3600, 10) //qtdPixels, pixelSize
+  pixels.style.width = '480px'
+  resize(3600, 8) //qtdPixels, pixelSize
 }
 
 const resize = (qtdPixels, pixelSize) => { //funcao que muda o tamanho
@@ -32,9 +33,20 @@ const resize = (qtdPixels, pixelSize) => { //funcao que muda o tamanho
   }
 
   document.querySelectorAll('.pixel').forEach((ev) => {
-    ev.addEventListener('click', () => {
-      ev.style.backgroundColor = inputColor.value
-    })
+    if (/Mobi|Android/i.test(navigator.userAgent)) { //versao Celular
+      
+      ev.addEventListener('mouseover', () => {
+        ev.style.backgroundColor = inputColor.value
+      })
+
+    }
+    else { //versao PC
+      
+      ev.addEventListener('click', () => {
+        ev.style.backgroundColor = inputColor.value
+      })
+    
+    }
   })
 }
 
@@ -51,6 +63,15 @@ const functionEraser = () => { //borracha
       verifyEraser == 0 ? ev.style.backgroundColor = '#ffffff' : ev.style.backgroundColor = inputColor.value
     })
   })
+}
+
+const functionBucket = () => {
+  verifyBucket == 0 ? verifyBucket = 1 : verifyBucket = 0
+  if (verifyBucket == 1) {
+    document.querySelectorAll('.pixel').forEach((ev) => {
+      ev.style.backgroundColor = inputColor.value
+    })
+  }
 }
 
 /*

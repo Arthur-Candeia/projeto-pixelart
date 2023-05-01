@@ -12,6 +12,12 @@
   --blue: #A2D2FF;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #pixels {
   display: flex;
   width: 160px;
@@ -21,5 +27,5 @@
 .pixel {
   width: 40px;
   height: 40px;
-  border: 1px solid black;
+  border: 0.1px solid black;
 }
