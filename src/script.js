@@ -15,3 +15,5 @@ buttonX60.addEventListener('click', functionX60)
 clearButton.addEventListener('click', functionClear)
 eraserButton.addEventListener('click', functionEraser)
 bucketButton.addEventListener('click', functionBucket)
+
+console.log()

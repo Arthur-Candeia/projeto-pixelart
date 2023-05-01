@@ -33,8 +33,7 @@ const resize = (qtdPixels, pixelSize) => { //funcao que muda o tamanho
   }
 
   document.querySelectorAll('.pixel').forEach((ev) => {
-    if (/Mobi|Android/i.test(navigator.userAgent)) { //versao Celular
-      alert('celular')
+    if (screen.orientation.type == 'portrait' || screen.orientation.type == 'portrait-primary' || navigator.userAgentData.mobile) { //versao Celular
       ev.addEventListener('touchmove', () => {
         ev.style.backgroundColor = inputColor.value
       })
