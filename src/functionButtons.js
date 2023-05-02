@@ -1,9 +1,11 @@
 export {functionX9, functionX30, functionX60, functionClear, functionEraser, functionBucket}
 
 const pixels = document.getElementById('pixels')
+const eraserButton = document.getElementById('eraserButton')
 const inputColor = document.getElementById('inputColor')
 let verifyEraser = 1
 let verifyBucket = 0
+let bgColor = ''
 
 const functionX9 = () => {
   pixels.innerHTML = ''
@@ -30,11 +32,13 @@ const resize = (qtdPixels, pixelSize) => { //funcao que muda o tamanho
     pixels.append(div)
     document.querySelectorAll('.pixel')[i].style.width = `${pixelSize}px`
     document.querySelectorAll('.pixel')[i].style.height = `${pixelSize}px`
+    document.querySelectorAll('.pixel')[i].style.backgroundColor = '#ffffff'
   }
 
   document.querySelectorAll('.pixel').forEach((ev) => {
     if (screen.orientation.type == 'portrait' || screen.orientation.type == 'portrait-primary' || navigator.userAgentData.mobile) { //versao Celular
-      ev.addEventListener('mousemove', () => {
+      ev.addEventListener('mousemove', (div) => {
+        div.preventDefault()
         ev.style.backgroundColor = inputColor.value
       })
 
@@ -52,14 +56,16 @@ const resize = (qtdPixels, pixelSize) => { //funcao que muda o tamanho
 const functionClear = () => { //limpar tudo
   document.querySelectorAll('.pixel').forEach((ev) => {
     ev.style.backgroundColor = '#ffffff'
+    bgColor = '#ffffff'
   })
 }
 
 const functionEraser = () => { //borracha
   verifyEraser == 1 ? verifyEraser = 0 : verifyEraser = 1
+  verifyEraser == 0 ? eraserButton.style.backgroundColor = 'var(--blue)' : eraserButton.style.backgroundColor = 'var(--pink)'
   document.querySelectorAll('.pixel').forEach((ev) => {
     ev.addEventListener('click', () => {
-      verifyEraser == 0 ? ev.style.backgroundColor = '#ffffff' : ev.style.backgroundColor = inputColor.value
+      verifyEraser == 0 ? ev.style.backgroundColor = bgColor : ev.style.backgroundColor = inputColor.value
     })
   })
 }
@@ -69,6 +75,7 @@ const functionBucket = () => {
   if (verifyBucket == 1) {
     document.querySelectorAll('.pixel').forEach((ev) => {
       ev.style.backgroundColor = inputColor.value
+      bgColor = inputColor.value
     })
   }
 }
