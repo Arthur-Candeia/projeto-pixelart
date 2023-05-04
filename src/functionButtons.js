@@ -6,7 +6,7 @@ const eraserButton = document.getElementById('eraserButton')
 const inputColor = document.getElementById('inputColor')
 let verifyEraser = 1
 let verifyBucket = 0
-let bgColor = ''
+let bgColor = '#ffffff'
 
 const functionX9 = () => {
   pixels.innerHTML = ''
@@ -44,8 +44,7 @@ const functionEraser = () => { //borracha
 }
 
 inputColor.addEventListener('click', () => { //evita conflito input e eraser
-  verifyEraser = 0
-  functionEraser()
+  verifyEraser == 0 ? functionEraser() : verifyEraser
 })
 
 const functionBucket = () => {

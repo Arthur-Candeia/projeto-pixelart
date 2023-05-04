@@ -12,14 +12,34 @@ export const resize = (qtdPixels, pixelSize) => { //funcao que muda o tamanho
   }
 
   document.querySelectorAll('.pixel').forEach((ev) => {
-    if (screen.orientation.type == 'portrait' || screen.orientation.type == 'portrait-primary' || navigator.userAgentData.mobile) { //versao Celular
+    
+    ev.addEventListener('mousedown', (event) => {
+      event.preventDefault()
+      isDragging = true
+    })
+    ev.addEventListener('mousemove', (event) => {
+      event.preventDefault()
+      isDragging ? event.target.style.backgroundColor = inputColor.value : isDragging
+    })
+    ev.addEventListener('mouseup', () => {
+      isDragging = false
+    })
+    document.querySelector('html').addEventListener('mouseup', () => {
+      isDragging = false
+    })
+    ev.addEventListener('click', () => {
+      ev.style.backgroundColor = inputColor.value
+    })
+    
+  })
+}
 
-      ev.addEventListener('touchstart', (event) => {
-        event.preventDefault()
+/*if (screen.orientation.type == 'portrait' || screen.orientation.type == 'portrait-primary' || navigator.userAgentData.mobile) { //versao Celular
+
+      ev.addEventListener('touchstart', () => {
         isDragging = true
       })
       ev.addEventListener('touchmove', (event) => {
-        event.preventDefault()
         isDragging ? event.target.style.backgroundColor = inputColor.value : isDragging
       })
       ev.addEventListener('touchend', () => {
@@ -32,27 +52,4 @@ export const resize = (qtdPixels, pixelSize) => { //funcao que muda o tamanho
         ev.style.backgroundColor = inputColor.value
       })
 
-    }
-    else { //versao PC
-    
-      ev.addEventListener('mousedown', (event) => {
-        event.preventDefault()
-        isDragging = true
-      })
-      ev.addEventListener('mousemove', (event) => {
-        event.preventDefault()
-        isDragging ? event.target.style.backgroundColor = inputColor.value : isDragging
-      })
-      ev.addEventListener('mouseup', () => {
-        isDragging = false
-      })
-      document.querySelector('html').addEventListener('mouseup', () => {
-        isDragging = false
-      })
-      ev.addEventListener('click', () => {
-        ev.style.backgroundColor = inputColor.value
-      })
-    
-    }
-  })
-}
+    }*/
