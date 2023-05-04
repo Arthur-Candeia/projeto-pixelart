@@ -1,4 +1,5 @@
 export {functionX9, functionX30, functionX60, functionClear, functionEraser, functionBucket}
+import {resize} from './resize.js'
 
 const pixels = document.getElementById('pixels')
 const eraserButton = document.getElementById('eraserButton')
@@ -25,34 +26,6 @@ const functionX60 = () => {
   resize(3600, 8) //qtdPixels, pixelSize
 }
 
-const resize = (qtdPixels, pixelSize) => { //funcao que muda o tamanho
-  for (let i = 0; i < qtdPixels; ++i) {
-    let div = document.createElement('div') //APRENDIZADO 1
-    div.className = 'pixel'
-    pixels.append(div)
-    document.querySelectorAll('.pixel')[i].style.width = `${pixelSize}px`
-    document.querySelectorAll('.pixel')[i].style.height = `${pixelSize}px`
-    document.querySelectorAll('.pixel')[i].style.backgroundColor = '#ffffff'
-  }
-
-  document.querySelectorAll('.pixel').forEach((ev) => {
-    if (screen.orientation.type == 'portrait' || screen.orientation.type == 'portrait-primary' || navigator.userAgentData.mobile) { //versao Celular
-      ev.addEventListener('mousemove', (div) => {
-        div.preventDefault()
-        ev.style.backgroundColor = inputColor.value
-      })
-
-    }
-    else { //versao PC
-      
-      ev.addEventListener('click', () => {
-        ev.style.backgroundColor = inputColor.value
-      })
-    
-    }
-  })
-}
-
 const functionClear = () => { //limpar tudo
   document.querySelectorAll('.pixel').forEach((ev) => {
     ev.style.backgroundColor = '#ffffff'
@@ -70,6 +43,11 @@ const functionEraser = () => { //borracha
   })
 }
 
+inputColor.addEventListener('click', () => { //evita conflito input e eraser
+  verifyEraser = 0
+  functionEraser()
+})
+
 const functionBucket = () => {
   verifyBucket == 0 ? verifyBucket = 1 : verifyBucket = 0
   if (verifyBucket == 1) {
@@ -77,6 +55,7 @@ const functionBucket = () => {
       ev.style.backgroundColor = inputColor.value
       bgColor = inputColor.value
     })
+    verifyBucket = 0
   }
 }
 
