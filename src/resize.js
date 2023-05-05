@@ -14,11 +14,12 @@ export const resize = (qtdPixels, pixelSize) => { //funcao que muda o tamanho
   document.querySelectorAll('.pixel').forEach((ev) => {
 
     if (screen.orientation.type == 'portrait' || screen.orientation.type == 'portrait-primary' || navigator.userAgentData.mobile || window.innerWidth <= 1000) { //versao Celular
-      
+      document.body.style.backgroundColor = 'black'
       ev.addEventListener('touchstart', () => {
         isDragging = true
       })
       ev.addEventListener('touchmove', (event) => {
+        event.preventDefault()
         isDragging ? event.target.style.backgroundColor = inputColor.value : isDragging
       })
       ev.addEventListener('touchend', () => {
