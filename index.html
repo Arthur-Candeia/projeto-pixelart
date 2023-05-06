@@ -7,9 +7,10 @@
   <title>Pixel-Art JS</title>
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="styles/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
   <script src="src/script.js" type="module" defer></script>
 </head>
-<body>
+<body id="body">
   <h1>Pixel-Art</h1>
   <main>
     <aside id="tamanhos">
@@ -25,6 +26,29 @@
       <input type="color" name="inputColor" id="inputColor">
     </aside>
     <section id="pixels"></section>
+    <button onclick="takeshot()" style="margin: 10px 0px;">Download Pixel-Art</button>
+    <!--<article></article>-->
   </main>
+
+  <script>
+    function takeshot() {
+      let topo = document.createElement('a')
+      topo.href = '#body'
+      topo.click()
+      document.querySelector('#body').style.overflowY = 'hidden'
+      let section = document.getElementById('pixels')
+
+      html2canvas(section).then(
+        function(canvas){
+          //document.querySelector('article').appendChild(canvas)
+          let link = document.createElement('a')
+          link.download = canvas
+          link.href = canvas.toDataURL()
+          link.click()
+        }
+      )
+      document.querySelector('#body').style.overflowY = 'auto'
+    }
+  </script>
 </body>
 </html>

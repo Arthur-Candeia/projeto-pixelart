@@ -74,7 +74,6 @@ main {
 
 #pixels {
   display: flex;
-  width: 160px;
   flex-wrap: wrap;
 }
 
