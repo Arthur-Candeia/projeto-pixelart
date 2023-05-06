@@ -13,20 +13,10 @@ export const resize = (qtdPixels, pixelSize) => { //funcao que muda o tamanho
 
   document.querySelectorAll('.pixel').forEach((ev) => {
 
-    if (screen.orientation.type == 'portrait' || screen.orientation.type == 'portrait-primary' || navigator.userAgentData.mobile || window.innerWidth <= 1000) { //versao Celular
-      document.body.style.backgroundColor = 'black'
-      ev.addEventListener('touchstart', () => {
-        isDragging = true
-      })
+    if (screen.orientation.type == 'portrait' || screen.orientation.type == 'portrait-primary' || navigator.userAgentData.mobile) { //versao Celular
       ev.addEventListener('touchmove', (event) => {
         event.preventDefault()
-        isDragging ? event.target.style.backgroundColor = inputColor.value : isDragging
-      })
-      ev.addEventListener('touchend', () => {
-        isDragging = false
-      })
-      document.querySelector('html').addEventListener('mouseup', () => {
-        isDragging = false
+        event.target.style.backgroundColor = inputColor.value
       })
       ev.addEventListener('click', () => {
         ev.style.backgroundColor = inputColor.value
@@ -48,30 +38,13 @@ export const resize = (qtdPixels, pixelSize) => { //funcao que muda o tamanho
     document.querySelector('html').addEventListener('mouseup', () => {
       isDragging = false
     })
+    ev.addEventListener('touchmove', (event) => {
+      event.preventDefault()
+      event.target.style.backgroundColor = inputColor.value
+    })
     ev.addEventListener('click', () => {
       ev.style.backgroundColor = inputColor.value
     })
   }
 })
 }
-
-
-/*if (screen.orientation.type == 'portrait' || screen.orientation.type == 'portrait-primary' || navigator.userAgentData.mobile) { //versao Celular
-
-      ev.addEventListener('touchstart', () => {
-        isDragging = true
-      })
-      ev.addEventListener('touchmove', (event) => {
-        isDragging ? event.target.style.backgroundColor = inputColor.value : isDragging
-      })
-      ev.addEventListener('touchend', () => {
-        isDragging = false
-      })
-      document.querySelector('html').addEventListener('mouseup', () => {
-        isDragging = false
-      })
-      ev.addEventListener('click', () => {
-        ev.style.backgroundColor = inputColor.value
-      })
-
-    }*/
