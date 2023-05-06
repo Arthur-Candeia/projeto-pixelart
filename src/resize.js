@@ -12,18 +12,7 @@ export const resize = (qtdPixels, pixelSize) => { //funcao que muda o tamanho
   }
 
   document.querySelectorAll('.pixel').forEach((ev) => {
-
-    if (screen.orientation.type == 'portrait' || screen.orientation.type == 'portrait-primary' || navigator.userAgentData.mobile) { //versao Celular
-      ev.addEventListener('touchmove', (event) => {
-        event.preventDefault()
-        event.target.style.backgroundColor = inputColor.value
-      })
-      ev.addEventListener('click', () => {
-        ev.style.backgroundColor = inputColor.value
-      })
-
-    }
-    else {
+    
     ev.addEventListener('mousedown', (event) => {
       event.preventDefault()
       isDragging = true
@@ -38,13 +27,8 @@ export const resize = (qtdPixels, pixelSize) => { //funcao que muda o tamanho
     document.querySelector('html').addEventListener('mouseup', () => {
       isDragging = false
     })
-    ev.addEventListener('touchmove', (event) => {
-      event.preventDefault()
-      event.target.style.backgroundColor = inputColor.value
-    })
     ev.addEventListener('click', () => {
       ev.style.backgroundColor = inputColor.value
     })
-  }
 })
 }
