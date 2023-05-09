@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family= Open+Sans:wght@400;600 & display =swap');
 @font-face {
   font-family: 'Pixels';
   src: url(../fonts/Pixels.ttf) format('truetype');
@@ -27,11 +28,18 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: var(--purple);
+  min-width: 500px;
 }
 
 h1 {
   font: bold 3em 'Pixels';
   margin: 10px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 aside {
@@ -81,4 +89,11 @@ main {
   width: 40px;
   height: 40px;
   border: 0.1px solid black;
+}
+
+#status {
+  font: 600 1.1em 'Open Sans', Arial, Verdana, sans-serif;
+  background-color: #999;
+  border: 1px solid #4dff91;
+  border-radius: 5px;
 }

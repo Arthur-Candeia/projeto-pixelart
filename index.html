@@ -26,16 +26,23 @@
       <input type="color" name="inputColor" id="inputColor">
     </aside>
     <section id="pixels"></section>
-    <button onclick="takeshot()" style="margin: 10px 0px;">Download Pixel-Art</button>
+    <button onclick="takeshot()" style="margin: 15px;">Download Pixel-Art</button>
+    <span id="status"></span>
     <!--<article></article>-->
   </main>
 
   <script>
     function takeshot() {
+      let status = document.getElementById('status')
+      status.innerText = 'Preparando o Download, aguarde...'
+      status.style.padding = '5px'
+
       let topo = document.createElement('a')
       topo.href = '#body'
       topo.click()
-      document.querySelector('#body').style.overflowY = 'hidden'
+
+      scroll(0,0)
+      document.querySelector('#body').style.overflow = 'hidden'
       let section = document.getElementById('pixels')
 
       html2canvas(section).then(
@@ -47,7 +54,10 @@
           link.click()
         }
       )
-      document.querySelector('#body').style.overflowY = 'auto'
+      document.querySelector('#body').style.overflow = 'auto'
+      status.style.color = '#4dff91'
+      status.innerText = 'Download Realizado com Sucesso ' + `✅`
+      setTimeout(() => {status.innerText = ''; status.style.color = '#000', status.style.padding = '0px'}, 3000)
     }
   </script>
 </body>
