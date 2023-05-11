@@ -54,10 +54,11 @@
           link.click()
         }
       )
+
       document.querySelector('#body').style.overflow = 'auto'
-      status.style.color = '#4dff91'
-      status.innerText = 'Download Realizado com Sucesso ' + `✅`
-      setTimeout(() => {status.innerText = ''; status.style.color = '#000', status.style.padding = '0px'}, 3000)
+      setTimeout(() => {status.style.color = '#4dff91'; status.innerText = 'Download Realizado com Sucesso ' + `✅`;
+      
+      setTimeout(() => {status.innerText = ''; status.style.color = '#000'; status.style.padding = '0px'}, 3000)}, 3000);
     }
   </script>
 </body>

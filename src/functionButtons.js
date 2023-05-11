@@ -4,6 +4,9 @@ import {resize} from './resize.js'
 const pixels = document.getElementById('pixels')
 const eraserButton = document.getElementById('eraserButton')
 const inputColor = document.getElementById('inputColor')
+const x9 = document.getElementById('x9')
+const x30 = document.getElementById('x30')
+const x60 = document.getElementById('x60')
 let verifyEraser = 1
 let verifyBucket = 0
 let bgColor = '#ffffff'
@@ -11,18 +14,30 @@ let bgColor = '#ffffff'
 const functionX9 = () => {
   pixels.innerHTML = ''
   pixels.style.width = '315px'
+  document.body.style.minWidth = '320px'
+  x9.style.backgroundColor = 'var(--blue)'
+  x30.style.backgroundColor = 'var(--pink)'
+  x60.style.backgroundColor = 'var(--pink)'
   resize(81, 35) //qtdPixels, pixelSize
 }
 
 const functionX30 = () => {
   pixels.innerHTML = ''
   pixels.style.width = '300px'
+  document.body.style.minWidth = '320px'
+  x9.style.backgroundColor = 'var(--pink)'
+  x30.style.backgroundColor = 'var(--blue)'
+  x60.style.backgroundColor = 'var(--pink)'
   resize(900, 10) //qtdPixels, pixelSize
 }
 
 const functionX60 = () => {
   pixels.innerHTML = ''
   pixels.style.width = '480px'
+  document.body.style.minWidth = '500px'
+  x9.style.backgroundColor = 'var(--pink)'
+  x30.style.backgroundColor = 'var(--pink)'
+  x60.style.backgroundColor = 'var(--blue)'
   resize(3600, 8) //qtdPixels, pixelSize
 }
 
