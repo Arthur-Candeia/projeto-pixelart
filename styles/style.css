@@ -66,6 +66,10 @@ button {
   padding: 8px 20px;
 }
 
+#tamanhos > button:active {
+  background-color: var(--blue);
+}
+
 input[type="color"] {
   background-color: transparent;
   border: none;

@@ -16,8 +16,8 @@ const functionX9 = () => {
   pixels.style.width = '315px'
   document.body.style.minWidth = '320px'
   x9.style.backgroundColor = 'var(--blue)'
-  x30.style.backgroundColor = 'var(--pink)'
-  x60.style.backgroundColor = 'var(--pink)'
+  x30.style.backgroundColor = ''
+  x60.style.backgroundColor = ''
   resize(81, 35) //qtdPixels, pixelSize
 }
 
@@ -25,9 +25,9 @@ const functionX30 = () => {
   pixels.innerHTML = ''
   pixels.style.width = '300px'
   document.body.style.minWidth = '320px'
-  x9.style.backgroundColor = 'var(--pink)'
+  x9.style.backgroundColor = ''
   x30.style.backgroundColor = 'var(--blue)'
-  x60.style.backgroundColor = 'var(--pink)'
+  x60.style.backgroundColor = ''
   resize(900, 10) //qtdPixels, pixelSize
 }
 
@@ -35,8 +35,8 @@ const functionX60 = () => {
   pixels.innerHTML = ''
   pixels.style.width = '480px'
   document.body.style.minWidth = '500px'
-  x9.style.backgroundColor = 'var(--pink)'
-  x30.style.backgroundColor = 'var(--pink)'
+  x9.style.backgroundColor = ''
+  x30.style.backgroundColor = ''
   x60.style.backgroundColor = 'var(--blue)'
   resize(3600, 8) //qtdPixels, pixelSize
 }
