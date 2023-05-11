@@ -66,8 +66,9 @@ button {
   padding: 8px 20px;
 }
 
-#tamanhos > button:active {
-  background-color: var(--blue);
+#tamanhos > button:hover {
+  background-color: var(--lightBlue);
+  transition: all 0.1s ease-out;
 }
 
 input[type="color"] {

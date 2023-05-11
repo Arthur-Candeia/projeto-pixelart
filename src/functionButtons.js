@@ -18,6 +18,7 @@ const functionX9 = () => {
   x9.style.backgroundColor = 'var(--blue)'
   x30.style.backgroundColor = ''
   x60.style.backgroundColor = ''
+  bgColor = '#ffffff'
   resize(81, 35) //qtdPixels, pixelSize
 }
 
@@ -28,6 +29,7 @@ const functionX30 = () => {
   x9.style.backgroundColor = ''
   x30.style.backgroundColor = 'var(--blue)'
   x60.style.backgroundColor = ''
+  bgColor = '#ffffff'
   resize(900, 10) //qtdPixels, pixelSize
 }
 
@@ -38,6 +40,7 @@ const functionX60 = () => {
   x9.style.backgroundColor = ''
   x30.style.backgroundColor = ''
   x60.style.backgroundColor = 'var(--blue)'
+  bgColor = '#ffffff'
   resize(3600, 8) //qtdPixels, pixelSize
 }
 
